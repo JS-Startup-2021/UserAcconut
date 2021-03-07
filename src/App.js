@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import HookTimer from "./ReactHook/HookTimer.js";
+import User from "./redux/User.js";
+import Loggain from "./Loggain/Loggain.js";
+
+export const UserContext = React.createContext();
+export const ChanelContext = React.createContext();
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Loggain />
+      </div>
+    );
+  }
 }
 
 export default App;
+/*
+const { Provider, connect } = ReactRedux;
+const { createStore, applyMiddleware } = Redux;
+const thunk = ReduxThunk.default;
+
+
+
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchPostsWithRedux();
+  }
+  render() {
+    return (
+      <ul>
+        {this.props.posts &&
+          this.props.posts.map((post) => {
+            return <li>{post.title}</li>;
+          })}
+      </ul>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+  };
+}
+
+let Container = connect(mapStateToProps, { fetchPostsWithRedux })(App);
+
+const store = createStore(reducer, applyMiddleware(thunk));
+ReactDOM.render(
+  <Provider store={store}>
+    <Container />
+  </Provider>,
+  document.getElementById("container")
+);
+*/
