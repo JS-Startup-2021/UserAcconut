@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { checkPasswordCorrect } from "../redux/actions/loggain.js";
+import { fetchArticleDetails } from "./redux/actions/loggain.js";
+
 //import { useSelector } from "react-redux";
 //import { useLocation, useHistory } from "react-router-dom";
 //import { Alert } from "../UI";
-import "./Loggain.scss";
+
 //import queryString from "query-string";
 
 // ForgotPassword component
@@ -40,8 +41,8 @@ const Loggain = (props) => {
   // newPasswordForm form
 
   const checkInputFieldsAndContinue = () => {
+    dispatch(fetchArticleDetails(userName));
     console.log(loggaincorrect);
-    dispatch(checkPasswordCorrect(userName, userPassword));
   };
   const LoggainForm = () => {
     return (
